@@ -1,0 +1,19 @@
+{
+  "name": "influx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodes.js",
+  "scripts": {
+    "test": "start",
+    "start":"node nodes.js"
+  },
+  "author": "ole thomas",
+  "license": "ISC",
+  "dependencies": {
+    "@influxdata/influxdb-client": "^1.17.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.3",
+    "puppeteer": "^10.2.0",
+    "rxjs": "^7.3.0"
+  }
+}
