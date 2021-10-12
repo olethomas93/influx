@@ -1,5 +1,6 @@
 let nodemailer = require('nodemailer');
-
+const cron = require('node-cron');
+var shedulemail =[]
 // const cron = require('node-cron');
 module.exports.sendEmail = async function(payload,pdf) {
   
@@ -31,20 +32,7 @@ let transporter = nodemailer.createTransport({
           contentType:'application/pdf'
         }],
   });
-  transporter.sendMail(message).then((error,info)=>{
-    if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-   
-
-})
-
-  
-// var task = cron.schedule('* * * * *', () => {
-// // Send e-mail
-//  transporter.sendMail(message).then((error,info)=>{
+//   transporter.sendMail(message).then((error,info)=>{
 //     if (error) {
 //         console.log(error);
 //       } else {
@@ -54,13 +42,20 @@ let transporter = nodemailer.createTransport({
 
 // })
 
+  
+shedulemail = cron.schedule('* * * * *', () => {
+// Send e-mail
+ transporter.sendMail(message).then((error,info)=>{
+    if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+   
+})
 
 
-
-
-
-
-// });
+})
 
 
 }
